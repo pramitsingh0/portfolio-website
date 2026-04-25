@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+html[light-mode="light"] {
+  --resume-bg: #ffffff;
+  --resume-text: #333;
+  --resume-btn-bg: linear-gradient(315deg, #6617cb 0%, #882463 74%);
+  --resume-btn-text: #fff;
+  --resume-fallback-text: #555;
+}
+
+html[light-mode="dark"] {
+  --resume-bg: #191919;
+  --resume-text: #fff;
+  --resume-btn-bg: linear-gradient(315deg, #6617cb 0%, #882463 74%);
+  --resume-btn-text: #fff;
+  --resume-fallback-text: #aaa;
+}
+
+section {
+  height: auto !important;
+}
+
+section > div {
+  padding-top: 7rem !important;
+}
+
+.resume-head {
+  font-weight: bold;
+}
+
+.resume-accent {
+  color: #4e00bb;
+}
+
+.resume-section {
+  max-width: 1000px;
+  margin: 2rem auto 4rem;
+  padding: 0 1.5rem;
+}
+
+.resume-download-wrapper {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.resume-download-btn {
+  display: inline-block;
+  padding: 14px 40px;
+  background: var(--resume-btn-bg);
+  color: var(--resume-btn-text);
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0px 10px 40px rgba(102, 23, 203, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resume-download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 14px 50px rgba(102, 23, 203, 0.45);
+  color: #fff;
+  text-decoration: none;
+}
+
+.resume-download-btn i {
+  margin-right: 8px;
+}
+
+.resume-embed-wrapper {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.2);
+}
+
+.resume-iframe {
+  width: 100%;
+  height: 80vh;
+  min-height: 600px;
+  border: none;
+}
+
+.resume-mobile-fallback {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--resume-fallback-text);
+  font-size: 0.95rem;
+}
+
+.resume-mobile-fallback a {
+  color: #6617cb;
+  font-weight: 600;
+}
+
+.resume-mobile-fallback a:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 767px) {
+  .resume-iframe {
+    min-height: 400px;
+    height: 60vh;
+  }
+
+  .resume-section {
+    padding: 0 1rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .resume-download-btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}
