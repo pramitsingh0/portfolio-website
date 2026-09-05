@@ -9,18 +9,18 @@ was written from the artefacts, not from recollection.
 
 ## Where everything lives
 
-| File | What it owns | Status |
-|---|---|---|
-| `PRODUCT.md` | Product truth: users, positioning, evidence, brand commitments, accessibility obligations | Authoritative, do not re-interview |
-| `DESIGN.md` | The design system: tokens, type ramp, components, named rules, do's and don'ts | Authoritative, derived from working code |
-| `.impeccable/design.json` | Machine-readable sidecar of DESIGN.md | Generated |
-| `.impeccable/surfaces/src-app-tsx.md` | The direction contract (THESIS / OWN-WORLD / STORY / FIRST VIEWPORT / FORM / FINISH) | Authoritative |
-| `.impeccable/mocks/comp-3.webp` | **The approved comp.** The spatial contract for the hero | Approved, signed off |
-| `.impeccable/mocks/decision/` | The direction round's rejected hand | Historical |
-| `.impeccable/build/spec.json` | Measured region boxes + sampled palette from the approved comp | Reference |
-| `.impeccable/review/` | Captures of the working build: desktop, mobile, 1600, dark | Reference — this is what it looked like |
-| `.impeccable/assets/hero-knot.webp` | The hero image asset, cropped from the approved comp | Ready to use |
-| `cv.md` | The single source of truth for every fact on the site | Authoritative |
+| File                                  | What it owns                                                                              | Status                                   |
+| ------------------------------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------- |
+| `PRODUCT.md`                          | Product truth: users, positioning, evidence, brand commitments, accessibility obligations | Authoritative, do not re-interview       |
+| `DESIGN.md`                           | The design system: tokens, type ramp, components, named rules, do's and don'ts            | Authoritative, derived from working code |
+| `.impeccable/design.json`             | Machine-readable sidecar of DESIGN.md                                                     | Generated                                |
+| `.impeccable/surfaces/src-app-tsx.md` | The direction contract (THESIS / OWN-WORLD / STORY / FIRST VIEWPORT / FORM / FINISH)      | Authoritative                            |
+| `.impeccable/mocks/comp-3.webp`       | **The approved comp.** The spatial contract for the hero                                  | Approved, signed off                     |
+| `.impeccable/mocks/decision/`         | The direction round's rejected hand                                                       | Historical                               |
+| `.impeccable/build/spec.json`         | Measured region boxes + sampled palette from the approved comp                            | Reference                                |
+| `.impeccable/review/`                 | Captures of the working build: desktop, mobile, 1600, dark                                | Reference — this is what it looked like  |
+| `.impeccable/assets/hero-knot.webp`   | The hero image asset, cropped from the approved comp                                      | Ready to use                             |
+| `cv.md`                               | The single source of truth for every fact on the site                                     | Authoritative                            |
 
 ## The decisions, in the order they were made
 
@@ -44,7 +44,7 @@ was written from the artefacts, not from recollection.
 6. **Never derive the design concept from his work domain.** A direction built out of his
    backend work (a patch-bay routing panel) was rejected on exactly this ground: "no need
    to take my work ex as a reference for creative ideas". Job content supplies the page's
-   *content*, never its *metaphor*.
+   _content_, never its _metaphor_.
 7. **Craft reference is `sayan.dev`**, at Awwwards-tier finish on that same skeleton.
 8. **Comp 3 approved** ("go with 3") — the editorial band composition: full-bleed name,
    hairline, metrics row, lede + CTAs left, object panel right, tag pills along the bottom.

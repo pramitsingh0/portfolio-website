@@ -59,7 +59,7 @@ Identity facts: name **Pramit Singh**. GitHub handle `pramitsingh0`. No existing
 A first direction round was run and Pramit took the standing exit. These are durable preferences, not one-round reactions:
 
 - **Conventional portfolio structure, executed at award-winning craft.** The familiar sections a visitor expects — hero, about, experience, projects, contact — in the familiar order. Craft ceiling is high; structural invention is not wanted. His words: "keep the portfolio generic," "it should be cool looking," and the concept he rejected was "too sophisticated."
-- **Never derive the design concept from his work domain.** A direction built out of his backend work (a patch-bay routing panel) was rejected on exactly this ground: "no need to take my work ex as a reference for creative ideas." Job content supplies the page's *content*, never its *metaphor*.
+- **Never derive the design concept from his work domain.** A direction built out of his backend work (a patch-bay routing panel) was rejected on exactly this ground: "no need to take my work ex as a reference for creative ideas." Job content supplies the page's _content_, never its _metaphor_.
 - **Craft bar:** `sayan.dev` is the pinned reference (screenshots reviewed: light warm-grey ground, oversized greeting headline, checkmark capability list, pill CTA plus Download CV, floating social pills, blurred floating pill nav, split-flap milestone board, big-number stats, tag pills). Craft target is Awwwards-tier finish on that same conventional skeleton.
 - **Hero anchor is a 3D / animated object, not a photograph.** No portrait is available or wanted; the interactive object carries the hero and delivers the 3D from his original brief.
 - **No testimonials section.** He has none, none will be invented, and the slot is dropped rather than filled or faked.
@@ -69,6 +69,7 @@ A first direction round was run and Pramit took the standing exit. These are dur
 **Authoritative content source: `cv.md` at the project root.** It is newer than every other record in the repo and supersedes them on conflict. It carries the professional summary, both current roles with metrics, Chingu Rooms, education, and the full skills breakdown.
 
 Verified facts safe to use, all from `cv.md`:
+
 - Meel (Jun 2025–present): 1,000+ daily orders on Cloud Run; ~30% API latency improvement; notification dispatch refactored out of the request path onto a Firestore `onDocumentCreated` collection-group trigger feeding Cloud Tasks with exponential-backoff retries (10 attempts, then one further retry after an hour), idempotent, ~5k notifications/day; Salla / Zid / WooCommerce webhook integrations; Zoho Books OAuth suite; bulk CSV/Excel ingestion; geospatial and AI route optimization; LLM route summaries on the Groq API.
 - iComply Lifescience Solutions (Jul 2024–Jun 2025): NCO backend module; PHP/MySQL/Node PDF report generation; JWT auth; Django email microservice at 99% uptime; SQL query optimization from 12s to under 500ms.
 - MoLog Media and Advertising, Full Stack Developer Intern (Apr–Jun 2022): led the migration of MoLog's Soham-ngma product to AMP, cutting page load times by ~50%.
@@ -76,6 +77,7 @@ Verified facts safe to use, all from `cv.md`:
 - Contact: `pramitsingh0@gmail.com`, +91 9937877665, `github.com/pramitsingh0`, `linkedin.com/in/pramit-singh-dev/`.
 
 **Projects — four real ones**, recovered from the old site's `assets/js/project.js` (git: `09c8317^:assets/js/project.js`). All repos are under `pramitsingh0`:
+
 - **Chingu Rooms** — full-stack hotel booking platform. React, Node.js, Express, MongoDB. Led a team of 4 under a University of Helsinki training program; built session, booking, and simulated-payment services. Live: `https://chingu-bt-30.onrender.com/` · Repo: `https://github.com/chingu-voyages/v42-bears-team-30` · Certificate on Google Drive (link in `cv.md`).
 - **AnimeFreak** — full-stack social platform for anime fans. Live: `https://animefreak.onrender.com` · Repo: `https://github.com/pramitsingh0/salmon-roe/`
 - **DMail** — Django + vanilla JS single-page email client. Live: `http://pramitsingh1.pythonanywhere.com/` · Repo: `https://github.com/pramitsingh0/django-js-mail-app`
@@ -86,13 +88,13 @@ Verified facts safe to use, all from `cv.md`:
 ⚠ **DMail and Auctions ship with invented placeholder copy, at Pramit's explicit instruction.** The recovered source had copy-paste errors (both read "hotel booking"), so the two descriptions marked `PLACEHOLDER COPY, INVENTED` above were written from the project names and stacks alone — nobody has read the repos. Titles, links, repos, and the Django/vanilla-JS stack are real; the feature claims are not verified. Pramit will replace them with accurate text later. Until he does, these two strings are the **only** unverified content on the site, and they must not spread: no metrics, no dates, no scale claims may be attached to either project.
 
 **Assets recoverable from git** (`09c8317^:<path>`), not currently in the working tree:
+
 - `assets/docs/Pramit_Singh_Resume.pdf` — a resume PDF exists in history but predates `cv.md` and is likely stale. Pramit has said he will supply a current one.
 - Project screenshots: `assets/images/project-page/{chingurooms,animefreak,dmail,auctions}.png` — real captures of his projects.
 - Company logos: `assets/images/experience-page/{meel.jpeg,icomply.jpeg,molog.jpg}`.
 - Every other image in that history (flappybird, tic-tac-toe, poker, recipe, deepholi, doc2pen, movie-recommendation, minesweeper, chess, quiz, music, book, exercise, battery, autovaidya) is **template sample data and not Pramit's work**. Do not use.
 
 **Absences that must not be fabricated:** no testimonials (the section is dropped by decision, see Brand Commitments), no references, no press, no open-source contribution record, no certifications beyond the Chingu one, no photo of Pramit confirmed, no case studies. The old site's `research.html`, `education.html`, `techstack.html`, and `references.html` were unmodified template boilerplate containing no real content about him.
-
 
 ## Product Principles
 

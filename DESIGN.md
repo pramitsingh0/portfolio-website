@@ -135,6 +135,7 @@ Density is deliberately uneven. The first viewport is a single loud gesture: a n
 Materially it is flat paper with one exception: things that lift are the things that float. The nav is frosted glass over the ground, cards and the hero stage carry a soft two-part contact shadow, and everything else sits directly on the page with a 1px hairline instead of a border-box. The rejected worlds are on record: the dark-terminal developer default, the concept-metaphor structure, and the template logo grid.
 
 **Key Characteristics:**
+
 - Warm light-grey ground carrying ~73% of the composition
 - One family, Archivo Variable, driven across both the weight and the width axis
 - Extreme scale contrast: an edge-to-edge display band against 0.83rem tracked captions
@@ -148,10 +149,12 @@ Materially it is flat paper with one exception: things that lift are the things 
 A warm neutral paper ground with near-black ink and exactly one electric blue, which appears at display scale and almost nowhere else.
 
 ### Primary
+
 - **Signal Blue** (`{colors.accent}`): The single accent. It appears on the emphasised phrase in the about statement, the bullet markers in the experience list, the text selection highlight, the focus ring, and as a reflected accent panel in the 3D environment map. It is a display-size colour only.
 - **Signal Blue Text** (`{colors.accent-text}`): The body-size counterpart. Used for the active nav item and its dot, and for the hover state of card links and the contact email. Not a stylistic variant — see the Two Blues Rule.
 
 ### Neutral
+
 - **Warm Paper** (`{colors.ground}`): The page ground and the text colour of anything sitting on ink (primary button labels, hovered social pills).
 - **Raised Paper** (`{colors.ground-raised}`): Card fills and the hero stage's gradient base; the one step up from ground, never a third step.
 - **Graphite Ink** (`{colors.ink}`): Headlines, the display band, metric numbers, the lede, button fills, and interactive text at rest.
@@ -162,6 +165,7 @@ A warm neutral paper ground with near-black ink and exactly one electric blue, w
 Dark theme mirrors every token one-for-one under `:root[data-theme='dark']` with `color-scheme: dark`; nothing is theme-only. Section borders, card borders, tag borders and chip fills are not tokens — they are `color-mix` percentages of `--ink` against transparent (12%, 14%, 42%, 7%), so they follow the theme automatically.
 
 ### Named Rules
+
 **The Two Blues Rule.** `--accent` is 4.32:1 against the ground: legible as display type, failing WCAG AA at body size. `--accent-text` at 5.6:1 exists solely to carry the blue down to body sizes. Anything under roughly 24px that needs to read blue uses `--accent-text`. This is a contrast rule, not a taste preference, and the two values are never interchanged.
 
 **The One Blue Rule.** Blue never fills a surface. It is an emphasised word, a 6px bullet, a 3px active dot, a selection highlight, a focus ring, and a reflection in the chrome. Every button, pill and card is ink or paper.
@@ -177,6 +181,7 @@ Dark theme mirrors every token one-for-one under `:root[data-theme='dark']` with
 **Character:** One grotesque doing every job, separated by axis rather than by family. The width axis is the primary expressive tool: the display band runs at 62% width so a full name can span the viewport at nine hundred weight without breaking, section headings sit at 92%, and metric numbers snap back to 100% so the figures read as data rather than as poster type. `font-synthesis: none` is set globally — every weight and width shown is a real instance of the variable font.
 
 ### Hierarchy
+
 - **Display** (900, `min(19.2cqw, 30svh)`, width 62%, line-height 0.78): the name band only, one undivided full-bleed line, `white-space: nowrap`.
 - **Statement** (900, `clamp(2.6rem, 7vw, 6.4rem)`, width 80%): the contact closing line, the only other place the nine-hundred weight appears.
 - **Headline** (800, `clamp(2.6rem, 5.6vw, 5.1rem)`, width 92%, max 22ch): the about section's thesis sentence, with one `<em>` reset to normal style and coloured `--accent`.
@@ -187,6 +192,7 @@ Dark theme mirrors every token one-for-one under `:root[data-theme='dark']` with
 - **Label** (400, 0.83rem, +0.045em tracking, uppercase in content not CSS): metric captions.
 
 ### Named Rules
+
 **The Width-Axis Rule.** Scale is bought with the `wdth` axis before anything else. The display band reaches edge to edge by compressing to `font-stretch: 62%`, not by shrinking, and it relaxes as the viewport narrows (78% under 1024px, 72% under 640px) because a short measure no longer needs the compression. Never letterspace a heading to fill a line; change the width axis.
 
 **The Container Query Rule.** The display band is sized `min(19.2cqw, 30svh)` against `container-type: inline-size` on `.hero`, not in `vw`. Viewport units broke the moment `.hero` took a 1440px cap: past that width the container stops growing but `vw` does not, and the headline overruns. The `30svh` arm caps the band on short landscape viewports. Any type that must fit a capped container is sized in `cqw`.
@@ -212,12 +218,14 @@ Below the fold the rhythm is uniform: sections separated by a 1px 12%-ink top bo
 Flat by default. The ground is one flat plane, sections are separated by hairlines rather than by cards, and most surfaces have no shadow at all. Depth appears in exactly three places: the frosted nav floating over the page, the two content surfaces that lift (project cards on hover, the hero stage always), and the rendered contact shadow inside the 3D canvas. Both shadows are two-part — a 1–2px contact darkening plus a wide, heavily-negative-spread ambient pool — so the object reads as resting on paper rather than as glowing.
 
 ### Shadow Vocabulary
+
 - **Card** (`0 1px 2px rgb(20 21 22 / 0.04), 0 12px 32px -12px rgb(20 21 22 / 0.14)`): the hero stage at rest, project cards on hover.
 - **Nav** (`0 1px 2px rgb(20 21 22 / 0.05), 0 16px 40px -16px rgb(20 21 22 / 0.22)`): the floating pill nav only. Heavier, because it is the only element that overlaps content.
 
 Both tokens are redefined in dark theme against pure black at 0.4–0.7 alpha.
 
 ### Named Rules
+
 **The Earned Lift Rule.** A surface gets a shadow only if it genuinely floats above the page (the nav), is a window into another space (the hero stage), or is responding to the pointer (a hovered card). Static content sits flat on the ground with a hairline.
 
 ## Shapes
@@ -229,6 +237,7 @@ Borders are always 1px and always low-contrast: `--rule` for structural hairline
 ## Components
 
 ### Buttons
+
 - **Shape:** full pill (999px).
 - **Primary** (`.cta__primary`): ink fill, paper label, 600 weight, `1.75rem 3.25rem` padding at 1.4rem, tightening to `1.45rem 2.6rem` under 1400px and `1.15rem 2.2rem` under 1024px; full width on mobile.
 - **Nav CTA** (`.nav__cta`): the same ink pill at `0.9rem 1.6rem` / 1.02rem.
@@ -237,11 +246,13 @@ Borders are always 1px and always low-contrast: `--rule` for structural hairline
 - **Focus:** every link and button takes a global 2px `--accent` outline at 3px offset.
 
 ### Chips
+
 - **Tag pill** (`.tags li`): transparent fill, 42%-ink 1px border, 999px, `1.05rem 2.35rem` at 1.12rem. Hover deepens the border to full `--ink`. The hero stack row.
 - **Stack chip** (`.card__stack li`): 7%-ink fill, no border, `0.32rem 0.8rem` at 0.84rem in `--ink-soft`. Inside project cards only.
 - **Placeholder flag** (`.card__flag`): a dashed 34%-ink border pill at 0.72rem. It marks unverified copy and is a content-integrity affordance, not decoration; never restyle it into a neutral chip.
 
 ### Cards / Containers
+
 - **Corner Style:** 20px.
 - **Background:** `--ground-raised` on `--ground`; the one tonal step in the system.
 - **Border:** 1px at 14% ink, going to 30% on hover.
@@ -249,6 +260,7 @@ Borders are always 1px and always low-contrast: `--rule` for structural hairline
 - **Internal Padding:** 2.2rem, with `margin-top: auto` on the link row so every card's links align regardless of blurb length.
 
 ### Navigation
+
 A fixed frosted pill centred at 2.6% from the top, 80% wide (max 1230px), 7.4% tall (min 68px): `--ground-raised` at 72% opacity with `backdrop-filter: blur(18px) saturate(1.6)`, a 1px 55%-opacity `--pill-border`, and the nav shadow. The wordmark is 700 at 1.28rem with its suffix in `--ink-soft`; links are 1.06rem `--ink-soft` going to `--ink` on hover. The active link is `--accent-text` with a 3px dot centred 0.55em below it.
 
 **The Honest Current Rule.** `aria-current="page"` is set from a scroll-spy IntersectionObserver (`rootMargin: -45% 0px -50% 0px`) that picks the highest-ratio intersecting section. It is never hard-coded and never set from a click handler; the indicator must describe where the reader actually is.
@@ -276,6 +288,7 @@ So the still is not a downgrade from live 3D — it is the higher-fidelity optio
 ## Do's and Don'ts
 
 ### Do:
+
 - **Do** use `--accent-text` (#0a4ad4 / 5.6:1) for any blue at body size and `--accent` (#0b5cff) only at display size. The Two Blues Rule is a contrast requirement.
 - **Do** set long-form copy in `--ink-soft` and reserve `--ink` for headings, the lede and interactive text.
 - **Do** buy display scale with the `wdth` axis (62–100%) before reaching for tracking or a second face.
@@ -289,6 +302,7 @@ So the still is not a downgrade from live 3D — it is the higher-fidelity optio
 - **Do** drive `aria-current` from the scroll-spy observer.
 
 ### Don't:
+
 - **Don't** put `--accent` on body-size text, or fill a surface with blue. Blue is a word, a dot, a bullet, a ring and a reflection.
 - **Don't** introduce a second typeface or a third tonal step above `--ground-raised`.
 - **Don't** letterspace a heading to make it fill its line.

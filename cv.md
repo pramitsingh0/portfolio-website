@@ -14,6 +14,7 @@ Full Stack Developer with 2+ years of experience building high-throughput, event
 ## Work Experience
 
 ### Meel
+
 **Backend Developer**
 Jun. 2025-Present
 
@@ -27,8 +28,8 @@ Jun. 2025-Present
 - Implemented geospatial and AI route optimization: reverse geocoding, distance/time computation, ETA extraction, and real-time route orchestration
 - Built customer-facing LLM route summaries on the Groq API, turning raw lifecycle event data (route created, order assigned to driver, shipment picked up, route started, route ended) into a readable narrative of what happened on each route
 
-
 ### iComply Lifescience Solutions
+
 **Backend Developer**
 Jul. 2024-Jun. 2025
 
@@ -39,6 +40,7 @@ Jul. 2024-Jun. 2025
 - Engineered complex SQL queries using joins, unions, subqueries, and indexing, improving critical query performance from 12s to under 500ms
 
 ### MoLog Media and Advertising
+
 **Full Stack Developer Intern**
 Apr. 2022-Jun. 2022
 
