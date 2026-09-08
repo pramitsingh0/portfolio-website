@@ -130,7 +130,7 @@ components:
 
 A warm grey paper ground, a name set so large it touches both edges, and one real object under studio light. The page is the familiar portfolio skeleton — hero, about, experience, projects, contact, in that order — and every gram of ambition goes into finish rather than structure. Nothing here is a metaphor for the work; the work supplies content, never concept.
 
-Density is deliberately uneven. The first viewport is a single loud gesture: a nine-hundred-weight compressed wordmark, a hairline, three numbers, a paragraph, two calls to action, and a live chrome astronaut in a rounded inset card. Below the fold the page drops to a quiet editorial rhythm — hairline-separated sections, generous vertical air, body copy in a softened warm grey, and one blue dot as the only ornament. The contrast between those two registers is the design; a recruiter resolves the top in seconds, an engineer is rewarded for scrolling into the calm.
+Density is deliberately uneven. The first viewport is a single loud gesture: a nine-hundred-weight compressed wordmark, a hairline, three numbers, a paragraph, two calls to action, and a rendered chrome object in a rounded inset card. Below the fold the page drops to a quiet editorial rhythm — hairline-separated sections, generous vertical air, body copy in a softened warm grey, and one blue dot as the only ornament. The contrast between those two registers is the design; a recruiter resolves the top in seconds, an engineer is rewarded for scrolling into the calm.
 
 Materially it is flat paper with one exception: things that lift are the things that float. The nav is frosted glass over the ground, cards and the hero stage carry a soft two-part contact shadow, and everything else sits directly on the page with a 1px hairline instead of a border-box. The rejected worlds are on record: the dark-terminal developer default, the concept-metaphor structure, and the template logo grid.
 
@@ -141,7 +141,7 @@ Materially it is flat paper with one exception: things that lift are the things 
 - Extreme scale contrast: an edge-to-edge display band against 0.83rem tracked captions
 - Pill for anything interactive, 20–22px for anything that holds content
 - Flat by default; frosted glass for the nav, contact shadow for cards and the stage
-- A live WebGL object, not a raster, as the hero anchor
+- A rendered still, not a live canvas, as the hero anchor
 - Full light/dark theming under `:root[data-theme='dark']`
 
 ## Colors
@@ -150,7 +150,7 @@ A warm neutral paper ground with near-black ink and exactly one electric blue, w
 
 ### Primary
 
-- **Signal Blue** (`{colors.accent}`): The single accent. It appears on the emphasised phrase in the about statement, the bullet markers in the experience list, the text selection highlight, the focus ring, and as a reflected accent panel in the 3D environment map. It is a display-size colour only.
+- **Signal Blue** (`{colors.accent}`): The single accent. It appears on the emphasised phrase in the about statement, the bullet markers in the experience list, the text selection highlight, the focus ring. It is a display-size colour only.
 - **Signal Blue Text** (`{colors.accent-text}`): The body-size counterpart. Used for the active nav item and its dot, and for the hover state of card links and the contact email. Not a stylistic variant — see the Two Blues Rule.
 
 ### Neutral
@@ -203,19 +203,19 @@ Dark theme mirrors every token one-for-one under `:root[data-theme='dark']` with
 
 A single-column scroll with a 1440px cap. Both the hero and every `.sec` share `max-width: 1440px; margin-inline: auto`, and the horizontal gutter is `3.13%` — the measured left edge of the approved comp — becoming `6vw` under 640px.
 
-The hero is a fixed composition. Above 1024px it is `height: 100svh` (min 640px) with each region absolutely positioned at its measured fraction: the nav at 10%/80% width, the band at y 9.96% for 27.93% height, the hairline at 38.1%, metrics at 40.6%, the lede at 54.9% for 37.24% width, the CTA at 79.98%, the 3D stage at 60%/40% for 40%×50%, and the tag row at 91.2%. Two intermediate breakpoints (1400px, 1180px) shrink the lede and pill padding to keep that composition honest between 1280 and 1600.
+The hero is a fixed composition. Above 1024px it is `height: 100svh` (min 640px) with each region absolutely positioned at its measured fraction: the nav at 10%/80% width, the band at y 9.96% for 27.93% height, the hairline at 38.1%, metrics at 40.6%, the lede at 54.9% for 37.24% width, the CTA at 79.98%, the stage at 60%/40% for 40%×50%, and the tag row at 91.2%. Two intermediate breakpoints (1400px, 1180px) shrink the lede and pill padding to keep that composition honest between 1280 and 1600.
 
 Below 1024px the absolute composition is abandoned wholesale: every hero region returns to `position: static` and stacks in source order inside `padding: 7.5rem 5vw 4rem`, the band wraps, and the stage becomes a 4:3 block (1:1 under 640px). The nav stays fixed but drops its inline links into a full-width second row inside the same pill rather than hiding them.
 
 Below the fold the rhythm is uniform: sections separated by a 1px 12%-ink top border, `clamp(5rem, 11vh, 9rem)` of leading air, `clamp(3rem, 6vh, 4.5rem)` between a heading and its content. Projects are a rigid two-column grid with a 1.4rem gutter collapsing to one column at 900px; about is `auto-fit, minmax(320px, 1fr)`; experience is a `minmax(220px, 26%) 1fr` two-column row per job, collapsing to one column at 1024px.
 
-**Motion.** The hero entrance is a seven-step CSS stagger on `cubic-bezier(0.22, 1, 0.36, 1)`: nav at 0s, band at 0.06s, metrics 0.22s, lede and stage 0.3s, CTA 0.38s, tags 0.46s, with the hairline fading in last at 0.5s. Below the fold, reveals are IntersectionObserver-driven at `rootMargin: 0px 0px -12% 0px` with three variants — `rise` (22px up), `slide` (14px up, 10px left), `scale` (16px up, 0.985) — so consecutive sections do not repeat one identical gesture; siblings are staggered 80–160ms. A global `prefers-reduced-motion` block collapses every animation and transition to 0.01ms, `Reveal` skips its observer and shows immediately, and the WebGL stage drops to `frameloop="demand"`.
+**Motion.** The hero entrance is a seven-step CSS stagger on `cubic-bezier(0.22, 1, 0.36, 1)`: nav at 0s, band at 0.06s, metrics 0.22s, lede and stage 0.3s, CTA 0.38s, tags 0.46s, with the hairline fading in last at 0.5s. Below the fold, reveals are IntersectionObserver-driven at `rootMargin: 0px 0px -12% 0px` with three variants — `rise` (22px up), `slide` (14px up, 10px left), `scale` (16px up, 0.985) — so consecutive sections do not repeat one identical gesture; siblings are staggered 80–160ms. A global `prefers-reduced-motion` block collapses every animation and transition to 0.01ms, and `Reveal` skips its observer and shows immediately.
 
 **The Reduced-Motion Rule.** Motion is decoration on top of a page that is complete without it. Every animated element has its final state as its resting state; nothing appears only on animation.
 
 ## Elevation & Depth
 
-Flat by default. The ground is one flat plane, sections are separated by hairlines rather than by cards, and most surfaces have no shadow at all. Depth appears in exactly three places: the frosted nav floating over the page, the two content surfaces that lift (project cards on hover, the hero stage always), and the rendered contact shadow inside the 3D canvas. Both shadows are two-part — a 1–2px contact darkening plus a wide, heavily-negative-spread ambient pool — so the object reads as resting on paper rather than as glowing.
+Flat by default. The ground is one flat plane, sections are separated by hairlines rather than by cards, and most surfaces have no shadow at all. Depth appears in exactly three places: the frosted nav floating over the page, the two content surfaces that lift (project cards on hover, the hero stage always). Both shadows are two-part — a 1–2px contact darkening plus a wide, heavily-negative-spread ambient pool — so the object reads as resting on paper rather than as glowing.
 
 ### Shadow Vocabulary
 
@@ -242,6 +242,7 @@ Borders are always 1px and always low-contrast: `--rule` for structural hairline
 - **Primary** (`.cta__primary`): ink fill, paper label, 600 weight, `1.75rem 3.25rem` padding at 1.4rem, tightening to `1.45rem 2.6rem` under 1400px and `1.15rem 2.2rem` under 1024px; full width on mobile.
 - **Nav CTA** (`.nav__cta`): the same ink pill at `0.9rem 1.6rem` / 1.02rem.
 - **Hover:** `translateY(-1px)` (nav) or `-2px` (primary) with opacity to 0.9–0.92 over 0.18s on `cubic-bezier(0.2, 0.9, 0.3, 1.2)`. No colour change, no shadow.
+- **Press:** `scale(0.97)` over 100ms `ease-out`, on `:active` — fires on pointer-down, not on release. Every interactive element gets this; it is the page's only tactile feedback.
 - **Secondary** (`.cta__secondary`): an underlined text link at 1.32rem with a 6px underline offset and an inline SVG arrow that slides 3px down on hover.
 - **Focus:** every link and button takes a global 2px `--accent` outline at 3px offset.
 
@@ -275,15 +276,7 @@ The signature element of the page: a single object in the inset panel to the rig
 
 The approved comp's glass trefoil knot is cropped from `.impeccable/mocks/comp-3.webp` and shipped as `hero-knot.webp` (1216×1032, 47KB). It is placed with `object-fit: cover` at 112% inside the panel so the render's own studio ground fills the card edge to edge, and it is animated only by cursor parallax: a damped `translate3d` + `rotateY/rotateX` on pointer move (about 14px and 9° at the extremes), plus a small scale response to the CTA `mood`. In dark mode it keeps its bright ground and reads as an illuminated lightbox; `filter: brightness(0.9) contrast(1.03)` stops it glaring.
 
-**Why a still and not WebGL — this was tested, not assumed.** Three live versions were built and rejected: a procedural chrome robot, a shader-displaced liquid chrome blob, and the glass knot in `MeshTransmissionMaterial` with a real 1.6MB studio HDRI. The last of these reached roughly 80% of the reference render and cost 260KB of JS plus the HDRI. It could not reach 100%, and never will: **caustics** — the pooled light under the knot — and true multi-bounce internal refraction are not real-time features. A raytracer spends seconds per frame; a browser has 16 milliseconds.
-
-The deciding evidence: `sayan.dev`, the pinned craft reference for this project, contains **no 3D at all**. No three.js, no Spline, no `.glb`, no WebGL context anywhere in its markup. Its hero is a 3.99MB pre-rendered `hero-scrub.mp4` in a plain `<video>` tag. The benchmark solved this by rendering offline and playing it back.
-
-So the still is not a downgrade from live 3D — it is the higher-fidelity option, at 47KB instead of ~1.9MB.
-
-**The swap contract survives.** `src/hero-object/` keeps a registry so the object stays replaceable without touching the page: `registry.ts` maps ids to `React.lazy` components, each taking `{ mood }`, and `ACTIVE` selects one. Adding a video loop, a different render, or a live 3D object later means adding a module and changing one line.
-
-**If live 3D is ever revisited**, the two constraints that killed it are worth keeping: a procedurally drawn canvas environment is enough for chrome but **fatal for glass** (a smooth gradient refracted through a knot resolves back to flat grey — this is exactly what "plain white glass" looks like), and any object must be framed from its real bounding sphere rather than a hand-tuned scale, or it will clip its panel.
+Live 3D was built and rejected — three versions, the best reaching ~80% of the reference render for 260KB of JS plus a 1.6MB HDRI. Caustics and multi-bounce refraction are not real-time features. The still is 47KB. Do not revisit this.
 
 ## Do's and Don'ts
 
@@ -308,7 +301,7 @@ So the still is not a downgrade from live 3D — it is the higher-fidelity optio
 - **Don't** letterspace a heading to make it fill its line.
 - **Don't** attach a shadow to a static surface. Shadows belong to the floating nav, the stage, and hovered cards.
 - **Don't** thicken a rule past 1px or replace a hairline with a boxed container.
-- **Don't** reach for real-time WebGL to reproduce a rendered still. Caustics and multi-bounce refraction are not real-time features, and the craft reference for this project ships a pre-rendered video, not 3D.
+- **Don't** reach for real-time WebGL to reproduce a rendered still. This was tested and rejected.
 - **Don't** ship a multi-megabyte runtime asset (HDRI, `.glb`) for the hero. The whole first load is currently 280KB; the reference site's hero video alone is 3.99MB.
 - **Don't** put information in the hero object that is not also in the DOM; it is decorative and carries `alt=""`.
 - **Don't** restyle or remove the dashed placeholder flag while the copy it marks is unverified.

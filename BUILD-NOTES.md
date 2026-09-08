@@ -49,8 +49,7 @@ was written from the artefacts, not from recollection.
 8. **Comp 3 approved** ("go with 3") — the editorial band composition: full-bleed name,
    hairline, metrics row, lede + CTAs left, object panel right, tag pills along the bottom.
 9. **No testimonials section.** He has none, none will be invented, the slot is dropped.
-10. **Hero object: a rendered still of the glass knot.** See DESIGN.md → Hero Object
-    System for the full reasoning and the three rejected live-3D attempts.
+10. **Hero object: a rendered still of the glass knot.** See DESIGN.md → Hero Object System.
 
 ## What the page contains
 
@@ -132,8 +131,6 @@ requirements because the whole point of the page is that the words get read.
 - **Chrome on macOS clamps headless windows to ~485px wide.** A `--window-size=390` capture
   is a 390px crop of a 485px layout, which looks broken when nothing is wrong. Use CDP
   `Emulation.setDeviceMetricsOverride` for a true mobile viewport.
-- **Headless Chrome falls back to SwiftShader** and renders `transmission` materials
-  badly. Any WebGL glass judged from a headless screenshot will look worse than reality.
 
 ## Open items — these need Pramit
 
