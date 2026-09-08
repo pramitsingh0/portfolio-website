@@ -54,8 +54,23 @@
     min-height: 100svh;
   }
 
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+    }
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    .nav-frosted {
+      backdrop-filter: none;
+      background-color: var(--color-ground);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       animation-duration: 0.01ms !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
