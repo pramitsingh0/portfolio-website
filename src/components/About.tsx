@@ -13,7 +13,7 @@ export default function About() {
         <em className="text-accent not-italic">{s.emphasis}</em>
         {s.after}
       </Reveal>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-x-16 gap-y-12">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] gap-x-16 gap-y-12">
         <Reveal variant="slide" delay={80} className="flex flex-col gap-5">
           <h3 className="text-[0.95rem] font-semibold">
             {about.blocks[0].heading}

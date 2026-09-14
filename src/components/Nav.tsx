@@ -58,7 +58,11 @@ function useTheme() {
       document.documentElement.dataset.theme = next;
       setTheme(next);
     };
-    localStorage.setItem("theme", next);
+    try {
+      localStorage.setItem("theme", next);
+    } catch {
+      /* Storage may be unavailable. */
+    }
     // Crossfade the whole page between themes instead of a hard cut.
     if (document.startViewTransition) document.startViewTransition(apply);
     else apply();
@@ -217,6 +221,8 @@ function useThemeIcon(theme: string) {
 }
 
 export default function Nav() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
   const active = useScrollSpy();
   const [theme, toggleTheme] = useTheme();
   const { pill, onEnter, onLeave } = useHoverPill();
@@ -225,12 +231,37 @@ export default function Nav() {
   useNavMorph(shell, scrolled);
   const wordmark = useWordmark(active);
   const icon = useThemeIcon(theme);
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        menuButton.current?.focus();
+      }
+    };
+    const onOutside = (event: PointerEvent) => {
+      if (!shell.current?.contains(event.target as Node)) setMenuOpen(false);
+    };
+    const desktop = matchMedia("(min-width: 1024px)");
+    const onDesktop = () => {
+      if (desktop.matches) setMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onOutside);
+    desktop.addEventListener("change", onDesktop);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onOutside);
+      desktop.removeEventListener("change", onDesktop);
+    };
+  }, [menuOpen]);
 
   return (
     <nav
       ref={shell}
       className="nav-shell fixed left-1/2 z-50 flex -translate-x-1/2 flex-wrap items-center gap-x-4 rounded-pill pr-2.5 pl-5 lg:pr-3 lg:pl-9"
       data-state={scrolled ? "pill" : "top"}
+      data-menu-open={menuOpen}
       aria-label="Main navigation"
     >
       <NavGlass />
@@ -238,32 +269,14 @@ export default function Nav() {
         href="#top"
         className="flex min-h-14 items-center text-[1.2rem] font-bold text-ink"
         aria-label="Back to top"
+        onClick={() => setMenuOpen(false)}
       >
         <span ref={wordmark} className="inline-block">
           {identity.wordmark.join("")}
         </span>
       </a>
 
-      <ul
-        className="hairline relative order-last -mx-1 flex w-full justify-between py-2 pr-1 text-[0.94rem] lg:absolute lg:left-1/2 lg:order-none lg:w-auto lg:-translate-x-1/2 lg:justify-center lg:border-0 lg:py-0 lg:pr-0 lg:text-[1rem]"
-        onPointerLeave={onLeave}
-      >
-        <span ref={pill} aria-hidden="true" className="nav-pill" />
-        {nav.map((item) => (
-          <li key={item.href}>
-            <a
-              href={item.href}
-              className="nav-link"
-              onPointerEnter={onEnter}
-              aria-current={active === item.href.slice(1) ? "page" : undefined}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-
-      <div className="ml-auto flex items-center gap-2.5">
+      <div className="nav-actions ml-auto flex items-center gap-2.5">
         <button
           type="button"
           onClick={toggleTheme}
@@ -289,7 +302,7 @@ export default function Nav() {
             <path className="disc" d={MOON} fill="currentColor" stroke="none" />
           </svg>
         </button>
-        <Magnetic strength={0.25}>
+        <Magnetic strength={0.25} className="nav-contact">
           <a
             href={`mailto:${identity.email}`}
             className="pill pill-ink px-4 py-2 text-[0.9rem]"
@@ -297,7 +310,41 @@ export default function Nav() {
             Say Hello
           </a>
         </Magnetic>
+        <button
+          ref={menuButton}
+          type="button"
+          className="nav-menu-button"
+          aria-label={
+            menuOpen ? "Close navigation menu" : "Open navigation menu"
+          }
+          aria-expanded={menuOpen}
+          aria-controls="navigation-links"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+        </button>
       </div>
+      <ul
+        id="navigation-links"
+        className="navigation-links hairline relative order-last -mx-1 flex w-full justify-between py-2 pr-1 text-[0.94rem] lg:absolute lg:left-1/2 lg:order-none lg:w-auto lg:-translate-x-1/2 lg:justify-center lg:border-0 lg:py-0 lg:pr-0 lg:text-[1rem]"
+        onPointerLeave={onLeave}
+      >
+        <span ref={pill} aria-hidden="true" className="nav-pill" />
+        {nav.map((item) => (
+          <li key={item.href}>
+            <a
+              href={item.href}
+              className="nav-link"
+              onPointerEnter={onEnter}
+              onClick={() => setMenuOpen(false)}
+              aria-current={active === item.href.slice(1) ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +8,7 @@
       name="description"
       content="Full-Stack Developer in Bangalore building production systems end to end — React and TypeScript on the front, Node.js and event-driven services on Google Cloud behind them."
     />
-    <meta name="theme-color" content="#efe7e6" />
+    <meta name="theme-color" content="#ffffff" />
     <meta property="og:title" content="Pramit Singh — Full-Stack Developer" />
     <meta
       property="og:description"
@@ -27,12 +27,8 @@
     <script>
       // Runs before paint so the theme never flashes.
       try {
-        var t =
-          localStorage.getItem("theme") ||
-          (matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light");
-        document.documentElement.dataset.theme = t;
+        document.documentElement.dataset.theme =
+          localStorage.getItem("theme") === "dark" ? "dark" : "light";
       } catch (e) {}
     </script>
   </head>
