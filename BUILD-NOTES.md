@@ -3,6 +3,9 @@
 Written 2026-09-05, at the end of a design session that produced a complete working
 implementation which was then deliberately removed so Pramit could build it himself.
 
+**Status 2026-09-12:** rebuilt in `src/` (Tailwind v4 utilities over the `@theme` tokens, content in
+`src/content.ts`). Open items below still stand.
+
 **This file is the decision log and the implementation brief.** Nothing here needs to be
 re-decided. If something contradicts your memory of a conversation, this file wins — it
 was written from the artefacts, not from recollection.
@@ -169,3 +172,11 @@ For reference when rebuilding — these were real, measured on a production buil
 - Dependencies needed: `react`, `react-dom`, `tailwindcss`, `@tailwindcss/vite`. Nothing else.
   (Tailwind was installed by the scaffold; the build used hand-written CSS with custom
   properties, not Tailwind utilities.)
+
+## Release 2026-09-14
+
+- Hero uses the lightweight HTML/CSS retro desktop; Three.js and its unused viewer are removed from the release. Downloaded model experiments remain local and untracked.
+- Wordmark is pramit.space. Domain registration/DNS have not been changed; the existing Netlify URL remains in Open Graph metadata.
+- No current résumé PDF is supplied: Request CV opens an email draft instead of a broken download.
+- DMail and Auctions now use concise descriptions verified from their GitHub repositories, replacing the provisional copy.
+- Netlify builds with pnpm build and publishes dist on Node 22.

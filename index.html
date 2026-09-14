@@ -2,9 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pramit Singh</title>
+    <title>Pramit Singh — Full-Stack Developer</title>
+    <meta
+      name="description"
+      content="Full-Stack Developer in Bangalore building production systems end to end — React and TypeScript on the front, Node.js and event-driven services on Google Cloud behind them."
+    />
+    <meta name="theme-color" content="#efe7e6" />
+    <meta property="og:title" content="Pramit Singh — Full-Stack Developer" />
+    <meta
+      property="og:description"
+      content="2+ years shipping high-throughput, event-driven systems. 1,000+ daily orders in production, queries cut from 12s to under 500ms."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pramitsingh.netlify.app" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap"
+    />
+    <script>
+      // Runs before paint so the theme never flashes.
+      try {
+        var t =
+          localStorage.getItem("theme") ||
+          (matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+        document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

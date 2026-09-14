@@ -1,0 +1,2 @@
+# Retro desktop
+Replace the hero's 3D viewer with an HTML/CSS miniature monochrome desktop. Use a charcoal dotted wallpaper, light striped window chrome, oversized hello typography, and About / Projects / CV icons. About and Projects select concise windows with real section links; CV uses the existing download. Close returns to desktop; a welcome button restores the opening window. Preserve hero entry motion, reduced-motion behavior and all other site features. No new dependencies or perpetual animations. User approved trying the concept and requested autonomous execution.
