@@ -67,9 +67,9 @@ export default function HeroDesktop() {
             <DesktopIcon kind="projects" />
             <span>Projects</span>
           </button>
-          <a href={identity.cv}>
+          <a href={identity.cv} download>
             <DesktopIcon kind="cv" />
-            <span>Request CV</span>
+            <span>Download CV</span>
           </a>
         </div>
         {active && (

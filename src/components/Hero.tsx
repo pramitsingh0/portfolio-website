@@ -149,9 +149,10 @@ export default function Hero() {
             <Magnetic>
               <a
                 href={identity.cv}
+                download
                 className="link-underline inline-flex items-center gap-2 text-[1.15rem] font-medium lg:text-[1.32rem]"
               >
-                Request CV
+                Download CV
               </a>
             </Magnetic>
           </div>

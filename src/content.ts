@@ -1,4 +1,5 @@
 // Site content: career facts from cv.md; project summaries verified against their repositories.
+import cvUrl from "./assets/cv-pramit-singh-standard-2026-08-27.pdf";
 
 export const identity = {
   name: "Pramit Singh",
@@ -6,7 +7,7 @@ export const identity = {
   email: "pramitsingh0@gmail.com",
   phone: "+919937877665",
   location: "Bangalore, India",
-  cv: "mailto:pramitsingh0@gmail.com?subject=Resume%20request",
+  cv: cvUrl,
   github: "https://github.com/pramitsingh0",
   linkedin: "https://www.linkedin.com/in/pramit-singh-dev/",
 };
