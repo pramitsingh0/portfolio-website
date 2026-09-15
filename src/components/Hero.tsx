@@ -4,6 +4,26 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import { useRef } from "react";
 import HeroDesktop from "./HeroDesktop";
+import "./Hero.css";
+import nodeIcon from "../assets/tech/nodedotjs.svg";
+import reactIcon from "../assets/tech/react.svg";
+import typescriptIcon from "../assets/tech/typescript.svg";
+import cloudIcon from "../assets/tech/googlecloud.svg";
+import firestoreIcon from "../assets/tech/firebase.svg";
+import postgresIcon from "../assets/tech/postgresql.svg";
+import dockerIcon from "../assets/tech/docker.svg";
+import pythonIcon from "../assets/tech/python.svg";
+
+const techIcons = [
+  nodeIcon,
+  reactIcon,
+  typescriptIcon,
+  cloudIcon,
+  firestoreIcon,
+  postgresIcon,
+  dockerIcon,
+  pythonIcon,
+];
 import Magnetic from "./Magnetic";
 import { hero, identity } from "../content";
 import { useReducedMotion } from "../hooks/useReducedMotion";
@@ -111,7 +131,7 @@ export default function Hero() {
     <section
       id="top"
       ref={area}
-      className="flex min-h-svh flex-col justify-between overflow-hidden pt-36 pb-8 lg:min-h-[max(640px,100svh)] lg:pt-[max(4.5rem,6svh)] lg:pb-[min(2rem,2.5svh)]"
+      className="hero flex min-h-svh flex-col justify-between overflow-hidden pt-36 pb-8 lg:min-h-[max(640px,100svh)] lg:pt-[max(4.5rem,6svh)] lg:pb-[min(2rem,2.5svh)]"
       aria-label="Introduction"
     >
       <div className="band-wrap mx-gutter">
@@ -120,8 +140,8 @@ export default function Hero() {
 
       <div className="hero-rule hairline mx-gutter mt-[2svh]" />
 
-      <div className="mr-gutter ml-gutter grid flex-1 grid-cols-1 gap-x-[1.5%] gap-y-10 pt-[2svh] lg:grid-cols-[1fr_42%]">
-        <div className="flex flex-col gap-8 lg:gap-[min(2.5rem,3svh)]">
+      <div className="hero-main mr-gutter ml-gutter grid flex-1 grid-cols-1 gap-x-[1.5%] gap-y-10 pt-[2svh] lg:grid-cols-[1fr_42%]">
+        <div className="hero-copy flex flex-col gap-8 lg:gap-[min(2.5rem,3svh)]">
           <div className="hero-in flex flex-col gap-y-6 sm:flex-row sm:flex-wrap sm:gap-x-[min(2rem,2.2vw)] sm:divide-x sm:divide-rule">
             {hero.metrics.map((m, i) => (
               <div
@@ -160,19 +180,17 @@ export default function Hero() {
 
         <div
           ref={stage}
-          className="stage relative aspect-[4/3] overflow-hidden rounded-stage sm:aspect-square lg:aspect-auto lg:min-h-[320px]"
+          className="stage hero-stage relative aspect-[4/3] overflow-hidden rounded-stage sm:aspect-square lg:aspect-auto lg:min-h-[320px]"
         >
           <HeroDesktop />
         </div>
       </div>
 
-      <ul className="mx-gutter mt-8 flex flex-wrap gap-3 lg:mt-[min(2.5rem,3svh)]">
-        {hero.tags.map((t) => (
-          <li
-            key={t}
-            className="hero-tag pill pill-line px-6 py-3 text-[1rem] lg:px-[min(2.25rem,2.4vw)] lg:py-[min(1rem,1.5svh)] lg:text-[min(1.12rem,1.7svh)]"
-          >
-            {t}
+      <ul className="hero-tech mx-gutter" aria-label="Technology stack">
+        {hero.tags.map((tag, index) => (
+          <li className="hero-tag tech-pill" key={tag}>
+            <img src={techIcons[index]} alt="" width="22" height="22" />
+            <span className="tech-pill-label">{tag}</span>
           </li>
         ))}
       </ul>

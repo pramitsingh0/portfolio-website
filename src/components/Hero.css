@@ -1,0 +1,80 @@
+/* Keep the original typography. Only the panel and layout spacing make room. */
+@media (min-width: 1024px) {
+  #top.hero {
+    min-height: 100svh;
+    padding-bottom: 12px;
+    justify-content: flex-start;
+  }
+  .hero .hero-main {
+    flex: 1 1 auto;
+    padding-top: 1.25svh;
+    min-height: 0;
+  }
+  .hero .hero-copy {
+    gap: min(1.25rem, 2svh);
+  }
+  .hero .hero-stage {
+    min-height: min(280px, 35svh);
+    align-self: stretch;
+  }
+  .hero-tech {
+    margin-top: 24px;
+  }
+}
+.hero-copy .pill-ink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-tech {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 10px;
+  flex-shrink: 0;
+}
+#top .tech-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px 8px;
+  min-width: 0;
+  border: 1px solid color-mix(in srgb, var(--color-ink) 22%, transparent);
+  border-radius: var(--radius-pill);
+  color: var(--color-ink);
+}
+.tech-pill img {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+[data-theme="dark"] .tech-pill img {
+  filter: invert(1);
+}
+.tech-pill-label {
+  font-size: clamp(12px, 1.02vw, 16px);
+  font-weight: 550;
+}
+
+@media (max-width: 1023px) {
+  .hero-tech {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: 24px;
+  }
+}
+@media (max-width: 639px) {
+  #top .hero-stage:has(.retro-desktop) {
+    height: 280px;
+    min-height: 280px;
+  }
+  .hero-tech {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  #top .tech-pill {
+    padding: 10px 12px;
+  }
+  .tech-pill-label {
+    font-size: 14px;
+  }
+}

@@ -8,7 +8,7 @@ export const identity = {
   phone: "+919937877665",
   location: "Bangalore, India",
   cv: cvUrl,
-  github: "https://github.com/pramitsingh0",
+  github: "https://github.com/pramitisngh0",
   linkedin: "https://www.linkedin.com/in/pramit-singh-dev/",
 };
 
