@@ -96,6 +96,9 @@ export default function TechExplorer() {
           className="explorer-grid"
           aria-label={familiar ? "Familiar stack" : "Main tech stack"}
         >
+          {technologies.map((technology) => (
+            <TechnologyFile key={technology.name} technology={technology} />
+          ))}
           {!familiar && (
             <li className="explorer-folder">
               <button
@@ -109,9 +112,6 @@ export default function TechExplorer() {
               </button>
             </li>
           )}
-          {technologies.map((technology) => (
-            <TechnologyFile key={technology.name} technology={technology} />
-          ))}
         </ul>
       </div>
       <div className="explorer-footer">
