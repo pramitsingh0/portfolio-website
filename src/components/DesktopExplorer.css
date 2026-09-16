@@ -1,0 +1,232 @@
+/* All new styling stays inside pramit.os; the approved hero layout is unchanged. */
+.retro-desktop .retro-shortcuts {
+  top: 12px;
+  bottom: 12px;
+  gap: clamp(6px, 2cqh, 16px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 4px;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #a3a399 #272725;
+}
+.retro-desktop .retro-shortcuts :is(button, a) {
+  min-height: 52px;
+  flex-shrink: 0;
+}
+.retro-desktop .retro-shortcuts svg {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+.retro-desktop .retro-shortcuts span {
+  padding: 2px;
+}
+.retro-desktop .retro-shortcuts :is(button, a):focus-visible {
+  outline-offset: 0;
+}
+.retro-window--explorer {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  transform: none;
+}
+.retro-window--explorer .retro-titlebar {
+  flex-shrink: 0;
+}
+.explorer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  font-size: 11px;
+  line-height: 1.4;
+}
+.explorer-path {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 35px;
+  padding: 5px 10px;
+  border-bottom: 1px solid #24242240;
+  flex-shrink: 0;
+  font-size: 10px;
+}
+.explorer-path button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.explorer-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #65655d #e0e0d7;
+  scroll-padding: 12px;
+}
+.explorer-scroll:focus-visible {
+  outline: 2px solid #242422;
+  outline-offset: -3px;
+}
+.explorer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  align-content: start;
+  gap: 14px 6px;
+  padding: 16px 10px;
+  margin: 0;
+  list-style: none;
+}
+.explorer-file,
+.explorer-folder button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  min-width: 0;
+  padding: 8px 3px;
+  text-align: center;
+  font-size: 10px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+.explorer-file img,
+.explorer-folder svg {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.explorer-file img {
+  filter: none;
+}
+.explorer-folder button {
+  width: 100%;
+  min-height: 88px;
+  background: #2424220c;
+  border: 1px dotted #24242255;
+  cursor: pointer;
+}
+.explorer-folder small {
+  font-size: 9px;
+  color: #55554e;
+  margin-top: -5px;
+}
+.explorer-folder button:hover {
+  background: #24242218;
+}
+.explorer-folder button:active {
+  background: #24242225;
+}
+.explorer-monogram {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  flex-shrink: 0;
+}
+.explorer-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  flex-shrink: 0;
+  padding: 5px 8px;
+  border-top: 1px solid #24242240;
+  font-size: 8px;
+  color: #55554e;
+}
+.experience-scroll {
+  padding: 14px 12px;
+}
+.desktop-experience {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.desktop-experience li + li {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #24242235;
+}
+.desktop-job-period {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  font-size: 9px;
+}
+.desktop-current {
+  background: #242422;
+  color: var(--desk-paper);
+  padding: 2px 5px;
+}
+.desktop-experience h3 {
+  font-family: var(--font-display);
+  font-size: clamp(15px, 3.8cqw, 22px);
+  line-height: 1.15;
+  font-weight: 700;
+  margin: 9px 0 4px;
+}
+.desktop-job-role {
+  font-size: 10px;
+  font-weight: 700;
+}
+.desktop-job-summary {
+  font-size: 11px;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+.desktop-experience-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 44px;
+  margin-top: 18px;
+  border-top: 1px solid #242422;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@container (max-width: 370px) {
+  .explorer-grid {
+    grid-template-columns: repeat(auto-fill, minmax(58px, 1fr));
+    gap: 8px 4px;
+    padding: 10px 6px;
+  }
+  .explorer-file,
+  .explorer-folder button {
+    font-size: 9px;
+  }
+  .explorer-footer > span:last-child {
+    display: none;
+  }
+  .explorer-path {
+    padding: 4px 7px;
+    font-size: 9px;
+  }
+  .experience-scroll {
+    padding: 10px 8px;
+  }
+}
+@media (pointer: coarse) {
+  .explorer-path button {
+    min-height: 44px;
+  }
+}
